@@ -11,13 +11,6 @@ import { ApiData, Character } from '../@types/Api'
 import { CharCard } from './CharCard' 
 
 
-interface CharCardProps {
-  characters: Character[]
-}
-
-interface Props {
-  res: ApiData
-}
 
 interface CurrentInfo {
   count: number
@@ -34,7 +27,7 @@ interface CurrentInfo {
 
 export const API_URL = 'https://rickandmortyapi.com/api/character'
 
-import { useCharacterContext } from '@/contexts/CharacterContext' // Import the context hook
+import { useCharacterContext } from '@/contexts/CharacterContext' 
 
 
 

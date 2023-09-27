@@ -90,6 +90,7 @@ export const PaginationContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    left: 50%;
     margin: auto;
     gap: 12px;
     transform: translateX(-100%);

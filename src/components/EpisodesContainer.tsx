@@ -7,37 +7,20 @@ import { useCharacterContext } from '@/contexts/CharacterContext'
 
 // Styles
 import * as S from '../styles/pages/home'
+import { EpisodesCharacter } from './EpisodesCharacter';
+import { EpisodesShared } from './EpisodesShared';
 
 
 export function EpisodesContainer() {
 
-  const { character1, character2 } = useCharacterContext();
+  const { character1, character2, episodes1, episodes2 } = useCharacterContext();
   
   return (
    <>
     <S.EpisodeSection>
-      <S.EpisodeContainer>
-        <S.SectionTitle>Section 1</S.SectionTitle>
-        <S.ScrollableContainer>
-          <p>{character1?.name}</p>
-        </S.ScrollableContainer>
-      </S.EpisodeContainer>
-
-      <S.EpisodeContainer>
-        <S.SectionTitle>Section 2</S.SectionTitle>
-        <S.ScrollableContainer>
-          <p>PEPEPE22</p>
-      
-        </S.ScrollableContainer>
-      </S.EpisodeContainer>
-
-      <S.EpisodeContainer>
-        <S.SectionTitle>Section 3</S.SectionTitle>
-        <S.ScrollableContainer>
-        <p>{character2?.name}</p>
-        </S.ScrollableContainer>
-      </S.EpisodeContainer>
-
+      <EpisodesCharacter character={character1} characterOrder={1}  />
+      <EpisodesShared episodesOne={episodes1} episodesTwo={episodes2}/>
+      <EpisodesCharacter character={character2} characterOrder={2}  />
     </S.EpisodeSection>
    </>
   )
