@@ -1,77 +1,5 @@
 import styled from 'styled-components'
 
-export const FilterForm = styled.form`
-  margin: 26px auto 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  max-width: 320px;
-  width: 100%;
-  padding: 0 26px;
-  gap: 8px;
-
-  > div {
-    width: 100%;
-    > input {
-      width: 100%;
-
-      padding: 8px;
-      border: 1px solid red;
-      border-radius: 8px;
-    }
-    > span {
-      font-size: 16px;
-      color: red;
-    }
-  }
-
-  > button {
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    border: none;
-    color: red;
-    font-size: red;
-    background: red;
-    padding: 9px 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-`
-
-export const FilteredContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 26px auto 0;
-  text-align: center;
-  padding: 8px;
-  font-size: 16px;
-`
-
-export const FilterSpan = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: red;
-  padding: 8px;
-  border-radius: 16px;
-  margin-top: 8px;
-`
-
-export const ClearButton = styled.button`
-  height: 22px;
-  background: transparent;
-  border: 0;
-  padding: 3px;
-  color: red;
-  cursor: pointer;
-`
-
 export const CharContainer = styled.div`
   display: flex;
   align-items: center;
@@ -157,12 +85,16 @@ export const Pane = styled.div`
   position: relative;
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   background-color: white;
   color: white;
   justify-items: center;
   align-items: center;
   margin: 0 auto;
+
+  /* @media (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+  } */
 `;
 
 
@@ -172,22 +104,9 @@ export const EpisodeSection = styled.div`
   display: flex;
 `;
 
-// export const EpisodeContainer = styled.div`
-//   width: 33%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   margin: auto;
-
-//   > h1 {
-//     font-size: 24px;
-//     margin-bottom: 16px;
-//   }
-// `
 
 
-// Styled components for the section title and scrollable container
+
 export const SectionTitle = styled.h1`
   font-size: 24px;
   margin-bottom: 16px;
@@ -195,14 +114,13 @@ export const SectionTitle = styled.h1`
 
 export const ScrollableContainer = styled.div`
   width: 100%;
-  height: 200px; /* You can adjust the height as needed */
+  height: 200px; 
   overflow-y: auto;
   overflow-x: hidden;
   border: 1px solid #ccc;
   padding: 8px;
 `;
 
-// Styled components for the EpisodeContainer
 export const EpisodeContainer = styled.div`
   width: 33%;
   display: flex;
@@ -216,4 +134,9 @@ export const EpisodeContainer = styled.div`
   background-color: #f9f9f9;
 `;
 
+export const Divider = styled.div`
+  width: 20px;
+  height: 100%;
+  background-color: black;
+`;
 

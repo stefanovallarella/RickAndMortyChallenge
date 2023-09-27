@@ -23,12 +23,10 @@ export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick }) =>
 
   return (
     <CharContent.CharContent onClick={handleClick}>
-      <Image
-        loader={() => character.image}
+      <CharContent.CharImage
         src={character.image}
-        unoptimized
-        width={200}
-        height={200}
+        width={185}
+        height={185}
         alt={character.name}
       />
       <span>{character.status}</span>

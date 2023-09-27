@@ -37,62 +37,6 @@ import { CharacterProvider } from '../contexts/CharacterContext';
 export const API_URL = 'https://rickandmortyapi.com/api/character'
 
 export default function Home() {
-  // const { info, results = [] } = props.res
-
-  // const [characters, setCharacters] = useState<Character[]>(results)
-  // const [currentInfo, setCurrentInfo] = useState<CurrentInfo>({
-  //   ...info,
-  //   current: API_URL,
-  // })
-
-  // // Constants
-  // const { current } = currentInfo
-  // const disablePrevButton = currentInfo.prev === null
-  // const disableNextButton = currentInfo.next === null
-  // const currentPageNumber = current.includes('page=')
-  //   ? Number(new URL(current).searchParams.get('page'))
-  //   : 1
-
-  // // Functions
-  // const handleNextPage = () => {
-  //   setCurrentInfo((prevInfo: CurrentInfo) => {
-  //     return { ...prevInfo, current: prevInfo.next ? prevInfo.next : current }
-  //   })
-  // }
-
-  // const handlePrevPage = () => {
-  //   setCurrentInfo((prevInfo: CurrentInfo) => {
-  //     return { ...prevInfo, current: prevInfo.prev ? prevInfo.prev : current }
-  //   })
-  // }
-
-
-  // useEffect(() => {
-  //   if (current === API_URL) return
-
-  //   async function changePage() {
-  //     const changePage = await axios
-  //       .get<ApiData>(current)
-  //       .then(({ data }) => {
-  //         return data
-  //       })
-  //       .catch(() => {
-  //         console.log('Personagem não encontrado!')
-  //       })
-
-  //     if (changePage) {
-  //       setCurrentInfo({
-  //         ...changePage.info,
-  //         current,
-  //       })
-
-  //       setCharacters([...changePage.results])
-  //     }
-  //   }
-
-  //   changePage()
-  // }, [current])
-
   return (
     <>
       <Head>
@@ -105,6 +49,7 @@ export default function Home() {
         <CharacterProvider>
           <S.SplitScreenContainer>
             <CharGrid characterOrder={1} />
+            <S.Divider />
             <CharGrid characterOrder={2} />
           </S.SplitScreenContainer>
 
