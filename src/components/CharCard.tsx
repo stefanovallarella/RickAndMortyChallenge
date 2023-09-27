@@ -4,12 +4,6 @@ import Image from 'next/image'
 // React
 import React, { useContext } from 'react'
 
-// Libs
-//import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
-
-// Context
-// import { FavoriteContext } from '../context/CharContext'
-
 // Types
 import { Character } from '../@types/Api'
 
@@ -17,25 +11,18 @@ import { Character } from '../@types/Api'
 import * as CharContent from '../styles/components/CharCard'
 
 interface CharCardProps {
-  character: Character
+  character: Character;
+  onItemClick: (character: Character) => void; // Add onItemClick prop
 }
 
-export function CharCard({ character }: CharCardProps) {
-  // Context
-  // const { addToFavorite, removeFavoriteChar, checkIfItemAlreadyExists } =
-  //   useContext(FavoriteContext)
-
-  // Functions
-  // const handleAddOrRemoveFavorite = (char: Character) => {
-  //   if (checkIfItemAlreadyExists(char.id) > -1) {
-  //     removeFavoriteChar(char.id)
-  //   } else {
-  //     addToFavorite(char)
-  //   }
-  // }
+export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick }) => {
+  
+  const handleClick = () => {
+    onItemClick(character);
+  };
 
   return (
-    <CharContent.CharContent>
+    <CharContent.CharContent onClick={handleClick}>
       <Image
         loader={() => character.image}
         src={character.image}

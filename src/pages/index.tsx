@@ -1,15 +1,11 @@
 // Next
 import Head from 'next/head'
 
-// React
-import { useEffect, useState } from 'react'
-
-// Libs
-import axios from 'axios'
 
 // Components
 import { CharCard } from '../components/CharCard'
 import { CharGrid } from '../components/CharGrid'
+import {EpisodesContainer} from '../components/EpisodesContainer'
 
 // Types
 import { ApiData, Character } from '../@types/Api'
@@ -34,65 +30,68 @@ interface Inputs {
   query: string
 }
 
+
+import { CharacterProvider } from '../contexts/CharacterContext'; 
+
+
 export const API_URL = 'https://rickandmortyapi.com/api/character'
 
-export default function Home(props: Props) {
-  const { info, results = [] } = props.res
+export default function Home() {
+  // const { info, results = [] } = props.res
 
-  const [filteredBy, setFilteredBy] = useState<string>('')
-  const [characters, setCharacters] = useState<Character[]>(results)
-  const [currentInfo, setCurrentInfo] = useState<CurrentInfo>({
-    ...info,
-    current: API_URL,
-  })
+  // const [characters, setCharacters] = useState<Character[]>(results)
+  // const [currentInfo, setCurrentInfo] = useState<CurrentInfo>({
+  //   ...info,
+  //   current: API_URL,
+  // })
 
-  // Constants
-  const { current } = currentInfo
-  const disablePrevButton = currentInfo.prev === null
-  const disableNextButton = currentInfo.next === null
-  const currentPageNumber = current.includes('page=')
-    ? Number(new URL(current).searchParams.get('page'))
-    : 1
+  // // Constants
+  // const { current } = currentInfo
+  // const disablePrevButton = currentInfo.prev === null
+  // const disableNextButton = currentInfo.next === null
+  // const currentPageNumber = current.includes('page=')
+  //   ? Number(new URL(current).searchParams.get('page'))
+  //   : 1
 
-  // Functions
-  const handleNextPage = () => {
-    setCurrentInfo((prevInfo: CurrentInfo) => {
-      return { ...prevInfo, current: prevInfo.next ? prevInfo.next : current }
-    })
-  }
+  // // Functions
+  // const handleNextPage = () => {
+  //   setCurrentInfo((prevInfo: CurrentInfo) => {
+  //     return { ...prevInfo, current: prevInfo.next ? prevInfo.next : current }
+  //   })
+  // }
 
-  const handlePrevPage = () => {
-    setCurrentInfo((prevInfo: CurrentInfo) => {
-      return { ...prevInfo, current: prevInfo.prev ? prevInfo.prev : current }
-    })
-  }
+  // const handlePrevPage = () => {
+  //   setCurrentInfo((prevInfo: CurrentInfo) => {
+  //     return { ...prevInfo, current: prevInfo.prev ? prevInfo.prev : current }
+  //   })
+  // }
 
 
-  useEffect(() => {
-    if (current === API_URL) return
+  // useEffect(() => {
+  //   if (current === API_URL) return
 
-    async function changePage() {
-      const changePage = await axios
-        .get<ApiData>(current)
-        .then(({ data }) => {
-          return data
-        })
-        .catch(() => {
-          console.log('Personagem não encontrado!')
-        })
+  //   async function changePage() {
+  //     const changePage = await axios
+  //       .get<ApiData>(current)
+  //       .then(({ data }) => {
+  //         return data
+  //       })
+  //       .catch(() => {
+  //         console.log('Personagem não encontrado!')
+  //       })
 
-      if (changePage) {
-        setCurrentInfo({
-          ...changePage.info,
-          current,
-        })
+  //     if (changePage) {
+  //       setCurrentInfo({
+  //         ...changePage.info,
+  //         current,
+  //       })
 
-        setCharacters([...changePage.results])
-      }
-    }
+  //       setCharacters([...changePage.results])
+  //     }
+  //   }
 
-    changePage()
-  }, [current])
+  //   changePage()
+  // }, [current])
 
   return (
     <>
@@ -103,41 +102,31 @@ export default function Home(props: Props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-   
-        <S.SplitScreenContainer>
-          <CharGrid characters={ characters } />
-          <CharGrid characters={ characters }  />
-        </S.SplitScreenContainer>
-        
+        <CharacterProvider>
+          <S.SplitScreenContainer>
+            <CharGrid characterOrder={1} />
+            <CharGrid characterOrder={2} />
+          </S.SplitScreenContainer>
 
-        <S.PaginationContainer>
-          <S.BackButton onClick={handlePrevPage} disabled={disablePrevButton}>
-            Prev
-          </S.BackButton>
-          <S.PageCount
-            type="text"
-            disabled
-            value={`${currentPageNumber} / ${currentInfo.pages}`}
-          />
-          <S.NextButton onClick={handleNextPage} disabled={disableNextButton}>
-            Next
-          </S.NextButton>
-        </S.PaginationContainer>
-        <GlobalStyle/>
+        <EpisodesContainer/>
+       
+
+          <GlobalStyle/>
+        </CharacterProvider>
       </main>
     </>
   )
 }
 
-export async function getStaticProps() {
-  const res = await axios.get<ApiData>(API_URL).then(({ data }) => {
-    return data
-  })
+// export async function getStaticProps() {
+//   const res = await axios.get<ApiData>(API_URL).then(({ data }) => {
+//     return data
+//   })
 
-  return {
-    props: {
-      res,
-    },
-    revalidate: 60 * 60 * 2, // 2 hours,
-  }
-}
+//   return {
+//     props: {
+//       res,
+//     },
+//     revalidate: 60 * 60 * 2, // 2 hours,
+//   }
+// }

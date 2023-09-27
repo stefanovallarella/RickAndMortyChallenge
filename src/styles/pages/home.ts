@@ -85,21 +85,23 @@ export const CharContainer = styled.div`
 `
 
 export const PaginationContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  gap: 12px;
-  margin-bottom: 56px;
+    position: sticky;
+    bottom: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 12px;
+    transform: translateX(-100%);
 `
 
 export const BackButton = styled.button`
   z-index: 999;
   border-radius: 4px;
   border: none;
-  color: red;
+  color: white;
   font-size: 16px;
-  background: red;
+  background: black;
   padding: 8px 16px;
   cursor: pointer;
 
@@ -128,8 +130,8 @@ export const NextButton = styled.button`
   z-index: 999;
   border-radius: 4px;
   border: none;
-  font-size: 16px;
   color: white;
+  font-size: 16px;
   background: black;
   padding: 8px 16px;
   cursor: pointer;
@@ -146,10 +148,12 @@ export const NextButton = styled.button`
 
 export const SplitScreenContainer = styled.div`
   display: flex;
-  height: 100vh;
+  height: 60vh;
+  overflow-y: auto;
 `;
 
 export const Pane = styled.div`
+  position: relative;
   flex: 1;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -157,5 +161,58 @@ export const Pane = styled.div`
   color: white;
   justify-items: center;
   align-items: center;
+  margin: 0 auto;
 `;
+
+
+export const EpisodeSection = styled.div`
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+`;
+
+// export const EpisodeContainer = styled.div`
+//   width: 33%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   margin: auto;
+
+//   > h1 {
+//     font-size: 24px;
+//     margin-bottom: 16px;
+//   }
+// `
+
+
+// Styled components for the section title and scrollable container
+export const SectionTitle = styled.h1`
+  font-size: 24px;
+  margin-bottom: 16px;
+`;
+
+export const ScrollableContainer = styled.div`
+  width: 100%;
+  height: 200px; /* You can adjust the height as needed */
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #ccc;
+  padding: 8px;
+`;
+
+// Styled components for the EpisodeContainer
+export const EpisodeContainer = styled.div`
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 16px;
+  border: 1px solid #ccc;
+  margin: 8px;
+  background-color: #f9f9f9;
+`;
+
 
