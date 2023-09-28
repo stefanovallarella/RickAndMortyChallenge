@@ -103,26 +103,25 @@ export function CharGrid({characterOrder}: {characterOrder: number}) {
 
 
   return (
-    <>
+    <S.PaneContainer>
       <S.Pane>
           {characters.map((character) => (
             <CharCard key={character.id} character={character} onItemClick={handleItemClick} />
           ))}
-
-        <S.PaginationContainer>
-          <S.BackButton onClick={handlePrevPage} disabled={disablePrevButton}>
-            Prev
-          </S.BackButton>
-          <S.PageCount
-            type="text"
-            disabled
-            value={`${currentPageNumber} / ${currentInfo.pages}`}
-          />
-          <S.NextButton onClick={handleNextPage} disabled={disableNextButton}>
-            Next
-          </S.NextButton>
-        </S.PaginationContainer>
       </S.Pane>
-    </>
+      <S.PaginationContainer>
+        <S.BackButton onClick={handlePrevPage} disabled={disablePrevButton}>
+          Prev
+        </S.BackButton>
+        <S.PageCount
+          type="text"
+          disabled
+          value={`${currentPageNumber} / ${currentInfo.pages}`}
+        />
+        <S.NextButton onClick={handleNextPage} disabled={disableNextButton}>
+          Next
+        </S.NextButton>
+      </S.PaginationContainer>
+    </S.PaneContainer>
   )
 }

@@ -21,7 +21,6 @@ export const PaginationContainer = styled.div`
     left: 50%;
     margin: auto;
     gap: 12px;
-    transform: translateX(-100%);
 `
 
 export const BackButton = styled.button`
@@ -77,24 +76,90 @@ export const NextButton = styled.button`
 
 export const SplitScreenContainer = styled.div`
   display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
   height: 60vh;
   overflow-y: auto;
+  flex-direction: row;
+  }
+
+
+`;
+
+export const PaneContainer = styled.div`
+  height: 300px;
+  overflow-y: hidden;
+
+  
+  &::-webkit-scrollbar {
+    display: none;
+    width: 5px; 
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4; 
+    border-radius: 5px; 
+  }
+
+ 
+  &::-webkit-scrollbar-track:hover {
+    background-color: #ddd; 
+  }
+
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+  }
+
+  @media (min-width: 480px) {
+    height: 370px;
+    max-height: 370px;
+  }
+  @media (min-width: 768px) {
+    flex: 1;
+    max-height: none;
+    overflow-y: auto;
+    height: 60vh;
+    max-height: none;
+
+  } 
+
+  @media (min-width: 1024px) {
+    &::-webkit-scrollbar {
+      display: block;
+    }
+  } 
+
+
+  
 `;
 
 export const Pane = styled.div`
-  position: relative;
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-  background-color: white;
-  color: white;
-  justify-items: center;
-  align-items: center;
-  margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 150px);
+    grid-auto-flow: column;
+    background-color: white;
+    color: white;
+    /* justify-items: center;
+    align-items: center; */
+    margin: 0 auto;
 
-  /* @media (min-width: 1024px) {
-    grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
-  } */
+    
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(2, 185px);
+      grid-template-rows: repeat(2, 185px);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      grid-template-rows: auto;
+      grid-auto-flow: row;
+    }
 `;
 
 
@@ -103,8 +168,6 @@ export const EpisodeSection = styled.div`
   height: 40vh;
   display: flex;
 `;
-
-
 
 
 export const SectionTitle = styled.h1`
@@ -135,8 +198,13 @@ export const EpisodeContainer = styled.div`
 `;
 
 export const Divider = styled.div`
-  width: 20px;
-  height: 100%;
+  width: 100%;
+  height: 10px;
   background-color: black;
+
+  @media (min-width: 768px){
+    width: 10px;
+    height: 100%;
+  }
 `;
 

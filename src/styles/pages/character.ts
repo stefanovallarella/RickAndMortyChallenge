@@ -10,26 +10,6 @@ export const CharacterContainer = styled.div`
   justify-content: center;
 `
 
-export const HeaderContainer = styled.div`
-  margin: 0 auto 26px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 300px;
-`
-
-export const AddFavoriteButton = styled.button`
-  display: flex;
-  align-items: center;
-  background: red;
-  color: red;
-  border-radius: 8px;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-`
-
 export const GoBack = styled(Link)`
   display: flex;
   align-items: center;

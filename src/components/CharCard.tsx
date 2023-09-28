@@ -1,8 +1,5 @@
-// Next
-import Image from 'next/image'
-
 // React
-import React, { useContext } from 'react'
+import React from 'react'
 
 // Types
 import { Character } from '../@types/Api'
@@ -20,6 +17,17 @@ export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick }) =>
   const handleClick = () => {
     onItemClick(character);
   };
+  
+  const getStatusIcon = () => {
+    switch (character.status) {
+      case 'Alive':
+        return '💜';
+      case 'Dead':
+        return '💀';
+      default:
+        return '❓';
+    }
+  };
 
   return (
     <CharContent.CharContent onClick={handleClick}>
@@ -29,8 +37,10 @@ export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick }) =>
         height={185}
         alt={character.name}
       />
-      <span>{character.status}</span>
-      <span>{character.species}</span>
+      <CharContent.CharDetails status={character.status}>
+        <p>{character.species}</p>
+        <p>Status: <span>{character.status}</span> {getStatusIcon()}</p>
+      </CharContent.CharDetails>
     </CharContent.CharContent>
   )
 }
