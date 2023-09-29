@@ -1,7 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-
-// Types
 import { Character, Episode } from '../@types/Api'
 
 interface CharacterContextType {
@@ -37,7 +35,7 @@ export function CharacterProvider({ children }: CharacterProviderProps) {
 export function useCharacterContext(): CharacterContextType {
   const context = useContext(CharacterContext);
   if (context === undefined) {
-    throw new Error('useCharacterContext must be used within a CharacterProvider');
+    throw new Error('useCharacterContext context error');
   }
   return context;
 }

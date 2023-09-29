@@ -1,17 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-// :focus {
-//   outline: none;
-//   box-shadow: 1px solid ${(props) => props.theme.colors.green100};
-// }
-
-// body {
-//   color: ${(props) => props.theme.colors.gray100};
-//   background: ${(props) => props.theme.colors.gray900};
-//   -webkit-font-smoothing: antialiased;
-// }
-
-
 export const GlobalStyle = createGlobalStyle`
   * {
     padding: 0;

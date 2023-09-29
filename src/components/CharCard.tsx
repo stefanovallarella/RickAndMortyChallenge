@@ -1,15 +1,12 @@
-// React
 import React from 'react'
 
-// Types
 import { Character } from '../@types/Api'
 
-// Styles
 import * as CharContent from '../styles/components/CharCard'
 
 interface CharCardProps {
   character: Character;
-  onItemClick: (character: Character) => void; // Add onItemClick prop
+  onItemClick: (character: Character) => void; 
 }
 
 export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick }) => {

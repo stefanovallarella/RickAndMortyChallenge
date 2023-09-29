@@ -10,32 +10,6 @@ export const CharacterContainer = styled.div`
   justify-content: center;
 `
 
-export const GoBack = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  text-transform: none;
-  text-decoration: none;
-  border: none;
-  color: red;
-  background: red;
-  padding: 10px;
-  transition: all 0.2s;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`
-
-export const Name = styled.h1`
-  color: red;
-  font-size: red;
-  margin: 26px auto;
-  text-align: center;
-`
-
 export const Details = styled.div`
   display: flex;
   flex-direction: column;

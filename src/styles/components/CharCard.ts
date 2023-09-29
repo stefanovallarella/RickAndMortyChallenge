@@ -1,4 +1,3 @@
-// CharCardStyles.ts
 import styled from 'styled-components';
 
 interface Props {

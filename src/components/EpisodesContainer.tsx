@@ -1,15 +1,11 @@
 
 import React, { useContext } from 'react'
 
-// Types
-
 import { useCharacterContext } from '@/contexts/CharacterContext'
 
-// Styles
 import * as S from '../styles/pages/home'
 import { EpisodesCharacter } from './EpisodesCharacter';
 import { EpisodesShared } from './EpisodesShared';
-
 
 export function EpisodesContainer() {
 

@@ -145,27 +145,27 @@ export const PaneContainer = styled.div`
 `;
 
 export const Pane = styled.div`
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 150px);
-    grid-template-rows: repeat(2, 150px);
-    grid-auto-flow: column;
-    background-color: white;
-    color: white;
-    margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(2, 150px);
+  grid-auto-flow: column;
+  background-color: white;
+  color: white;
+  margin: 0 auto;
 
-    
-    @media (min-width: 480px) {
-      grid-template-columns: repeat(2, 185px);
-      grid-template-rows: repeat(2, 185px);
-    }
+  
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(2, 185px);
+    grid-template-rows: repeat(2, 185px);
+  }
 
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-      grid-template-rows: auto;
-      grid-auto-flow: row;
-    }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+  }
 `;
 
 
@@ -205,9 +205,9 @@ export const SectionTitle = styled.h1`
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 4px;
-    background: rgba(255, 255, 255, 0.8); /* Background color for text */
-    padding: 4px; /* Adjust padding as needed */
-    border-radius: 4px; /* Rounded corners for the text background */
+    background: rgba(255, 255, 255, 0.8);
+    padding: 4px; 
+    border-radius: 4px; 
   }
 
   p:last-child {
@@ -276,8 +276,8 @@ export const EpisodeContainer = styled.div<Props>`
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    filter: blur(4px); /* Adjust the blur amount as needed */
-    z-index: -1; /* Behind the content */
+    filter: blur(4px);
+    z-index: -1; 
   }
 `;
 
