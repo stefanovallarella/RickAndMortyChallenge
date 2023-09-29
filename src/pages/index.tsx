@@ -1,15 +1,15 @@
-import Head from 'next/head'
-import React from 'react'
+import Head from "next/head";
+import React from "react";
 
-import { CharGrid } from '../components/CharGrid'
-import {EpisodesContainer} from '../components/EpisodesContainer'
+import { CharGrid } from "../components/CharGrid";
+import { EpisodesContainer } from "../components/EpisodesContainer";
 
-import * as Styled from '../styles/pages/home'
-import { GlobalStyle } from '@/styles/globals'
+import * as Styled from "../styles/pages/home";
+import { GlobalStyle } from "@/styles/globals";
 
-import { CharacterProvider } from '../contexts/CharacterContext'; 
+import { CharacterProvider } from "../contexts/CharacterContext";
 
-export const API_URL = 'https://rickandmortyapi.com/api/character'
+export const API_URL = "https://rickandmortyapi.com/api/character";
 
 export default function Home() {
   return (
@@ -27,10 +27,10 @@ export default function Home() {
             <Styled.Divider />
             <CharGrid characterOrder={2} />
           </Styled.SplitScreenContainer>
-        <EpisodesContainer/>
-        <GlobalStyle/>
+          <EpisodesContainer />
+          <GlobalStyle />
         </CharacterProvider>
       </main>
     </>
-  )
+  );
 }

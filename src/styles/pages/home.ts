@@ -17,20 +17,20 @@ export const CharContainer = styled.div`
 `
 
 export const PaginationContainer = styled.div`
-    position: sticky;
-    bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 0;
-    margin: auto;
-    gap: 12px;
-    z-index: 10;
+  position: sticky;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  margin: auto;
+  gap: 12px;
+  z-index: 10;
 
-    @media (min-width: 768px){
-      bottom: 50px;
-      left: 50%;
-    }
+  @media (min-width: 768px){
+    bottom: 50px;
+    left: 50%;
+  }
 `
 
 export const BackButton = styled.button`

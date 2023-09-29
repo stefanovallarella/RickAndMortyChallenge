@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
-import { Character, Episode } from '../@types/Api'
+import { Character, Episode } from "../@types/Api";
 
 interface CharacterContextType {
   character1: Character | null;
@@ -13,7 +13,9 @@ interface CharacterContextType {
   setEpisodes2: (episodes: Episode[] | null) => void;
 }
 
-const CharacterContext = createContext<CharacterContextType | undefined>(undefined);
+const CharacterContext = createContext<CharacterContextType | undefined>(
+  undefined
+);
 
 interface CharacterProviderProps {
   children: ReactNode;
@@ -26,7 +28,18 @@ export function CharacterProvider({ children }: CharacterProviderProps) {
   const [episodes2, setEpisodes2] = useState<Episode[] | null>(null);
 
   return (
-    <CharacterContext.Provider value={{ character1, setCharacter1, character2, setCharacter2, episodes1, setEpisodes1, episodes2, setEpisodes2 }}>
+    <CharacterContext.Provider
+      value={{
+        character1,
+        setCharacter1,
+        character2,
+        setCharacter2,
+        episodes1,
+        setEpisodes1,
+        episodes2,
+        setEpisodes2,
+      }}
+    >
       {children}
     </CharacterContext.Provider>
   );
@@ -35,7 +48,7 @@ export function CharacterProvider({ children }: CharacterProviderProps) {
 export function useCharacterContext(): CharacterContextType {
   const context = useContext(CharacterContext);
   if (context === undefined) {
-    throw new Error('useCharacterContext context error');
+    throw new Error("useCharacterContext context error");
   }
   return context;
 }

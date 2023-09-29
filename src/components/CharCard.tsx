@@ -1,34 +1,37 @@
-import React from 'react'
+import React from "react";
 
-import { Character } from '../@types/Api'
+import { Character } from "../@types/Api";
 
-import * as CharContent from '../styles/components/CharCard'
+import * as CharContent from "../styles/components/CharCard";
 
 interface CharCardProps {
   character: Character;
   onItemClick: (character: Character) => void;
-  isSelected: boolean; 
+  isSelected: boolean;
 }
 
-export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick, isSelected }) => {
-  
+export const CharCard: React.FC<CharCardProps> = ({
+  character,
+  onItemClick,
+  isSelected,
+}) => {
   const handleClick = () => {
     onItemClick(character);
   };
-  
+
   const getStatusIcon = () => {
     switch (character.status) {
-      case 'Alive':
-        return '💜';
-      case 'Dead':
-        return '💀';
+      case "Alive":
+        return "💜";
+      case "Dead":
+        return "💀";
       default:
-        return '❓';
+        return "❓";
     }
   };
 
   return (
-    <CharContent.CharContent  onClick={handleClick} isSelected={isSelected}>
+    <CharContent.CharContent onClick={handleClick} isSelected={isSelected}>
       <CharContent.CharImage
         src={character.image}
         width={185}
@@ -37,8 +40,10 @@ export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick, isSe
       />
       <CharContent.CharDetails status={character.status}>
         <p>{character.species}</p>
-        <p>Status: <span>{character.status}</span> {getStatusIcon()}</p>
+        <p>
+          Status: <span>{character.status}</span> {getStatusIcon()}
+        </p>
       </CharContent.CharDetails>
     </CharContent.CharContent>
-  )
-}
+  );
+};
