@@ -120,9 +120,11 @@ export function CharGrid({ characterOrder }: { characterOrder: number }) {
         </Styled.NextButton>
       </Styled.PaginationContainer>
 
-      <Styled.SelectCharacter>
-        {!selectedCharacterId && `Select Character #${characterOrder}`}
-      </Styled.SelectCharacter>
+      {!selectedCharacterId && (
+        <Styled.SelectCharacter>
+          Select Character #{characterOrder}
+        </Styled.SelectCharacter>
+      )}
     </Styled.PaneContainer>
   );
 }

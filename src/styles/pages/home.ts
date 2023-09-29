@@ -99,6 +99,7 @@ export const PaneContainer = styled.div`
   height: 335px;
   position: relative;
   overflow-y: hidden;
+
   @media (min-width: 480px) {
     height: 405px;
   }
@@ -130,7 +131,10 @@ export const Pane = styled.div`
   color: white;
   margin: 0 auto;
 
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
+  
   &::-webkit-scrollbar {
     display: none;
     width: 5px; 
