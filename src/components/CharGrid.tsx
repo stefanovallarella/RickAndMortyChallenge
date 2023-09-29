@@ -21,7 +21,6 @@ import { useCharacterContext } from "@/contexts/CharacterContext";
 export function CharGrid({ characterOrder }: { characterOrder: number }) {
   const { setCharacter1, setCharacter2 } = useCharacterContext();
 
-  const [selectedCards, setSelectedCards] = useState<number[]>([]);
   const [selectedCharacterId, setSelectedCharacterId] = useState<number | null>(
     null
   );
@@ -32,13 +31,6 @@ export function CharGrid({ characterOrder }: { characterOrder: number }) {
     } else {
       setCharacter2(characterData);
     }
-
-    setSelectedCards((prevSelected) =>
-      prevSelected.includes(cardIndex)
-        ? prevSelected.filter((index) => index !== cardIndex)
-        : [...prevSelected, cardIndex]
-    );
-
     setSelectedCharacterId(characterData.id);
   };
 
@@ -127,6 +119,10 @@ export function CharGrid({ characterOrder }: { characterOrder: number }) {
           Next
         </Styled.NextButton>
       </Styled.PaginationContainer>
+
+      <Styled.SelectCharacter>
+        {!selectedCharacterId && `Select Character #${characterOrder}`}
+      </Styled.SelectCharacter>
     </Styled.PaneContainer>
   );
 }

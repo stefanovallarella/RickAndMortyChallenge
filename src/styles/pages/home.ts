@@ -17,29 +17,29 @@ export const CharContainer = styled.div`
 `
 
 export const PaginationContainer = styled.div`
-  position: sticky;
-  bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0;
-  margin: auto;
-  gap: 12px;
-  z-index: 10;
+    position: sticky;
+    bottom: 3px;
+    /* bottom: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    margin: 5px auto;
+    gap: 12px;
+    z-index: 10;
 
-  @media (min-width: 768px){
-    bottom: 50px;
-    left: 50%;
-  }
+    @media (min-width: 768px){
+      bottom: 0;
+    }
 `
 
 export const BackButton = styled.button`
-  border-radius: 4px;
+  border-radius: 6px;
   border: none;
-  color: white;
+  color: black;
   font-size: 14px;
   font-weight: bold;
-  background: black;
+  background: white;
   padding: 6px 8px;
   cursor: pointer;
 
@@ -64,11 +64,11 @@ export const PageCount = styled.input`
 `
 
 export const NextButton = styled.button`
-  border-radius: 8px;
+  border-radius: 6px;
   border: none;
-  color: white;
+  color: black;
   font-size: 14px;
-  background: black;
+  background: white;
   font-weight: bold;
   padding: 6px 8px;
   cursor: pointer;
@@ -86,21 +86,51 @@ export const NextButton = styled.button`
 export const SplitScreenContainer = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: black;
 
   @media (min-width: 768px) {
-  height: 60vh;
-  overflow-y: auto;
-  flex-direction: row;
+    height: 60vh;
+    flex-direction: row;
   }
-
 
 `;
 
 export const PaneContainer = styled.div`
-  height: 300px;
+  height: 335px;
+  position: relative;
   overflow-y: hidden;
+  @media (min-width: 480px) {
+    height: 405px;
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  } 
+
+  @media (min-width: 1024px) {
+    &::-webkit-scrollbar {
+      display: block;
+    }
+  } 
+
 
   
+`;
+
+export const Pane = styled.div`
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(2, 150px);
+  grid-auto-flow: column;
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+
+
   &::-webkit-scrollbar {
     display: none;
     width: 5px; 
@@ -122,39 +152,6 @@ export const PaneContainer = styled.div`
     background-color: #555; 
   }
 
-  @media (min-width: 480px) {
-    height: 370px;
-    max-height: 370px;
-  }
-  @media (min-width: 768px) {
-    flex: 1;
-    max-height: none;
-    overflow-y: auto;
-    height: 60vh;
-    max-height: none;
-
-  } 
-
-  @media (min-width: 1024px) {
-    &::-webkit-scrollbar {
-      display: block;
-    }
-  } 
-
-
-  
-`;
-
-export const Pane = styled.div`
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 150px);
-  grid-template-rows: repeat(2, 150px);
-  grid-auto-flow: column;
-  background-color: white;
-  color: white;
-  margin: 0 auto;
 
   
   @media (min-width: 480px) {
@@ -166,6 +163,10 @@ export const Pane = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
     grid-template-rows: auto;
     grid-auto-flow: row;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: block;
+    }
   }
 `;
 
@@ -174,9 +175,6 @@ export const EpisodeSection = styled.div`
   width: 100vw;
   height: 40vh;
   display: flex;
-  border-top: 10px;
-  border-color: black;
-  border-style: solid;
   overflow-x: auto;
   flex-wrap: nowrap;
 
@@ -286,10 +284,25 @@ export const Divider = styled.div`
   width: 100%;
   height: 10px;
   background-color: black;
+  display: none;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px){ 
+    display: block;
     width: 10px;
     height: 100%;
   }
 `;
 
+
+export const SelectCharacter = styled.p`
+    font-size: 12px;
+    color: white;
+    margin: 0 auto;
+    padding: 6px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 150px;
+    position: absolute;
+    top: 0;
+`;
