@@ -72,7 +72,7 @@ export function CharGrid({ characterOrder }: { characterOrder: number }) {
           return data;
         })
         .catch(() => {
-          console.log("Personagem não encontrado!");
+          console.log("Personaje no encontrado");
         });
 
       if (changePage) {
@@ -128,3 +128,5 @@ export function CharGrid({ characterOrder }: { characterOrder: number }) {
     </Styled.PaneContainer>
   );
 }
+
+export default CharGrid;
