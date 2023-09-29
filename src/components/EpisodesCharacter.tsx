@@ -65,14 +65,15 @@ export function EpisodesCharacter({ character, characterOrder}: EpisodesCharacte
 
   return (
     <>
-      <S.EpisodeContainer>
-        <S.SectionTitle>Section 1</S.SectionTitle>
+      <S.EpisodeContainer image={character? character.image : ''}>
+        <S.SectionTitle>
+          <p>Character #{characterOrder}</p>
+          <p>{character?.name} <span>Episodes</span></p>
+          </S.SectionTitle>
         <S.ScrollableContainer>
-          <ul>
             {episodes.map((episode) => (
-                <p key={episode.id}><strong>Name</strong>  {episode.name}   <strong>Air Date:</strong> {episode.air_date}</p>
+                <p key={episode.id}><strong>Name: </strong>{episode.name}   <strong>Air Date:</strong> {episode.air_date}</p>
             ))}
-          </ul>
         </S.ScrollableContainer>
       </S.EpisodeContainer>
     </>

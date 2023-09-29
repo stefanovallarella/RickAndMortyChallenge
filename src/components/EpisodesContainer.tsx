@@ -19,7 +19,12 @@ export function EpisodesContainer() {
    <>
     <S.EpisodeSection>
       <EpisodesCharacter character={character1} characterOrder={1}  />
-      <EpisodesShared episodesOne={episodes1} episodesTwo={episodes2}/>
+      <EpisodesShared 
+        episodesOne={episodes1}
+        episodesTwo={episodes2}
+        nameCharOne={character1 ? character1.name : null}
+        nameCharTwo={character2 ? character2.name : null}
+      />
       <EpisodesCharacter character={character2} characterOrder={2}  />
     </S.EpisodeSection>
    </>

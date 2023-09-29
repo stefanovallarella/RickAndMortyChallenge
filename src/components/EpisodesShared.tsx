@@ -12,11 +12,13 @@ import * as S from '../styles/pages/home';
 interface EpisodesSharedProps {
   episodesOne: Episode[] | null;
   episodesTwo: Episode[] | null;
+  nameCharOne: string | null;
+  nameCharTwo: string | null;
 }
 
 
 
-export function EpisodesShared({ episodesOne, episodesTwo }: EpisodesSharedProps) {
+export function EpisodesShared({ episodesOne, episodesTwo, nameCharOne, nameCharTwo }: EpisodesSharedProps) {
   const [sharedEpisodes, setSharedEpisodes] = useState<Episode[]>([]);
 
   useEffect(() => {
@@ -31,8 +33,11 @@ export function EpisodesShared({ episodesOne, episodesTwo }: EpisodesSharedProps
 
   return (
     <>
-      <S.EpisodeContainer>
-        <S.SectionTitle>Shared Episodes</S.SectionTitle>
+      <S.EpisodeContainer image={'rickandmorty-bg-shared.jpg'}>
+      <S.SectionTitle>
+          <p>Character #1 & #2 Shared Episodes</p>
+          <p>{nameCharOne} & {nameCharTwo}</p>
+          </S.SectionTitle>
         <S.ScrollableContainer>
           <ul>
             {sharedEpisodes.map((episode) => (
