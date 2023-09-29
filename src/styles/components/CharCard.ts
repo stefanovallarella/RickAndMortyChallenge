@@ -1,21 +1,25 @@
 import styled from 'styled-components';
 
-interface Props {
+interface CharDetailsProps {
   status: string;
 }
 
+interface CharContentProps {
+  isSelected: boolean;
+}
 
-export const CharDetails = styled.div<Props>`
-  display: none;
+
+export const CharDetails = styled.div<CharDetailsProps>`
+  display: block;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
+  font-size: 12px;
   color: black;
   margin: 0;
-  padding: .5rem;
+  padding: 4px;
   text-align: center;
   z-index: 2; 
   transition: all 0.2s;
@@ -23,8 +27,11 @@ export const CharDetails = styled.div<Props>`
   
   > p {
     &:first-child {
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 700;
+      @media (min-width: 768px) {
+        font-size: 18px;
+      }
     }
     > span { 
       font-weight: bold;
@@ -40,10 +47,19 @@ export const CharDetails = styled.div<Props>`
       }};
     }
   }
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  @media (min-width: 1024px){
+    display: none;
+  }
 `;
 
 
-export const CharContent = styled.button`
+export const CharContent = styled.button<CharContentProps>`
   height: 150px;
   width: 150px;
   min-width: 150px;
@@ -60,12 +76,16 @@ export const CharContent = styled.button`
 
   &:hover {
     opacity: 80%;
-    &:hover ${CharDetails} {
-     display: block;
-    }
   }
 
- 
+  ${(props) =>
+    props.isSelected &&`
+      opacity: 80%;
+      ${CharDetails} {
+        display: block;
+       }
+  `}
+
 
   @media (min-width: 480px){
     height: 185px;
@@ -78,6 +98,12 @@ export const CharContent = styled.button`
     height: 100%;
     min-height: 185px;
   } 
+
+  @media (min-width: 1024px){
+    &:hover ${CharDetails} {
+     display: block;
+    }
+  }
 `;
 
 export const CharImage = styled.img`

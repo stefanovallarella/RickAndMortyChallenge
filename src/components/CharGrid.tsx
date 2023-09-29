@@ -22,13 +22,27 @@ export function CharGrid({characterOrder}: {characterOrder: number}) {
 
   const { setCharacter1, setCharacter2 } = useCharacterContext();
 
-  const handleItemClick = (characterData: Character) => {
+  const [selectedCards, setSelectedCards] = useState<number[]>([]);
+  const [selectedCharacterId, setSelectedCharacterId] = useState<number | null>(null);
+
+
+  const handleItemClick = (characterData: Character, cardIndex: number) => {
     if(characterOrder === 1){
       setCharacter1(characterData);
     }else{
       setCharacter2(characterData);
     }
+
+    setSelectedCards((prevSelected) =>
+      prevSelected.includes(cardIndex)
+        ? prevSelected.filter((index) => index !== cardIndex)
+        : [...prevSelected, cardIndex]
+    );
+
+    setSelectedCharacterId(characterData.id);
   };
+
+
 
   const [apiData, setApiData] = useState<ApiData>({ info: { count: 0, pages: 0, next: null, prev: null }, results: [] });
   const { info, results } = apiData;
@@ -38,7 +52,6 @@ export function CharGrid({characterOrder}: {characterOrder: number}) {
     current: API_URL,
   })
 
-  // Constants
   const { current } = currentInfo
   const disablePrevButton = currentInfo.prev === null
   const disableNextButton = currentInfo.next === null
@@ -46,7 +59,6 @@ export function CharGrid({characterOrder}: {characterOrder: number}) {
     ? Number(new URL(current).searchParams.get('page'))
     : 1
 
-  // Functions
   const handleNextPage = () => {
     setCurrentInfo((prevInfo: CurrentInfo) => {
       return { ...prevInfo, current: prevInfo.next ? prevInfo.next : current }
@@ -88,8 +100,11 @@ export function CharGrid({characterOrder}: {characterOrder: number}) {
   return (
     <Styled.PaneContainer>
       <Styled.Pane>
-          {characters.map((character) => (
-            <CharCard key={character.id} character={character} onItemClick={handleItemClick} />
+          {characters.map((character,index) => (
+            <CharCard key={character.id} character={character} 
+            onItemClick={(char) => handleItemClick(char, index)}
+            isSelected={character.id === selectedCharacterId}
+             />
           ))}
       </Styled.Pane>
       <Styled.PaginationContainer>

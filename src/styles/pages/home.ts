@@ -25,6 +25,7 @@ export const PaginationContainer = styled.div`
     left: 0;
     margin: auto;
     gap: 12px;
+    z-index: 10;
 
     @media (min-width: 768px){
       bottom: 50px;

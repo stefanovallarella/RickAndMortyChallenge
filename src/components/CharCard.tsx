@@ -6,10 +6,11 @@ import * as CharContent from '../styles/components/CharCard'
 
 interface CharCardProps {
   character: Character;
-  onItemClick: (character: Character) => void; 
+  onItemClick: (character: Character) => void;
+  isSelected: boolean; 
 }
 
-export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick }) => {
+export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick, isSelected }) => {
   
   const handleClick = () => {
     onItemClick(character);
@@ -27,7 +28,7 @@ export const CharCard: React.FC<CharCardProps> = ({ character, onItemClick }) =>
   };
 
   return (
-    <CharContent.CharContent onClick={handleClick}>
+    <CharContent.CharContent  onClick={handleClick} isSelected={isSelected}>
       <CharContent.CharImage
         src={character.image}
         width={185}
